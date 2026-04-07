@@ -27,7 +27,9 @@ console.log("JWT_SECRET exists:", !!process.env.JWT_SECRET);
 console.log("PORT:", process.env.PORT);
 
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(process.env.MONGO_URI, {
+    serverSelectionTimeoutMS: 30000,
+  })
   .then(() => {
     console.log("MongoDB connected successfully");
     app.listen(process.env.PORT || 5000, () => {
@@ -35,6 +37,6 @@ mongoose
     });
   })
   .catch((err) => {
-    console.error("DB connection error:", err.message);
+    console.error("DB connection error FULL:", err);
     process.exit(1);
   });
