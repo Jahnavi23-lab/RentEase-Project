@@ -23,6 +23,7 @@ app.use("/api/orders", orderRoutes);
 app.use("/api/products", productRoutes);
 
 console.log("MONGO_URI exists:", !!process.env.MONGO_URI);
+console.log("MONGO_URI value:", process.env.MONGO_URI); // add this
 console.log("JWT_SECRET exists:", !!process.env.JWT_SECRET);
 console.log("PORT:", process.env.PORT);
 
